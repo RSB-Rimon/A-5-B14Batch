@@ -53,10 +53,10 @@ const YourStack = ({selectedTechnology, handleRemoveStack, handleRemoveAll}:Your
               </div>
 
               <button
-                onClick={() => handleRemoveStack(technology.id)}
+                
                 className="text-xl text-slate-400 hover:text-red-500"
               >
-                <RiDeleteBack2Fill />
+                <RiDeleteBack2Fill onClick={() => handleRemoveStack(technology.id)} />
               </button>
             </div>
           ))}

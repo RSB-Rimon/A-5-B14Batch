@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar";
 import Technology from "./components/Technology";
 import type { CardType } from "./type/CardType";
 import YourStack from "./components/YourStack";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 
 const technologiseFetch = async (): Promise<CardType[]> => {
   const res = await fetch("/data.json");
@@ -14,32 +14,37 @@ const technologiseFetch = async (): Promise<CardType[]> => {
 };
 
 function App() {
-  const technologisePromise = technologiseFetch();
+  // const technologisePromise = technologiseFetch();
+
+  const [technologisePromise] = useState(()=> technologiseFetch())
   const [selectedTechnology, setSelectedTechnology] = useState<CardType[]>([]);
 
 
   const handleAddToStack = (technology: CardType) => {
     // console.log(technology, "technology object passing");
-    const allreadySelected = selectedTechnology.some((item)=> item.id === technology.id);
-    if(allreadySelected){
-      toast("This technology is allready in your stack")
+    const allreadySelected = selectedTechnology.some((item) => item.id === technology.id);
+    if (allreadySelected) {
+      toast.error("Allready added to your stack!");
+      return;
     }
+
     setSelectedTechnology([...selectedTechnology, technology]);
+    toast.success(`${technology.name} added successfully`);
   };
 
-  const handleRemoveStack =(id: string)=>{
-    setSelectedTechnology(
-      selectedTechnology.filter((technology)=> technology.id == id)
-    );
-
+  const handleRemoveStack = (id: string) => {
+    setSelectedTechnology(selectedTechnology.filter((technology) => technology.id !== id));
+    toast.success("Technology removed successfully!");
   };
 
-  const handleRemoveAll =()=>{
-    setSelectedTechnology([])
-  }
-
+  const handleRemoveAll = () => {
+    setSelectedTechnology([]);
+    toast.success("All technologies removed successfully");
+  };
+ 
   return (
     <>
+    <ToastContainer />
       <Navbar />
       <Banner />
       <div className="container mx-auto flex gap-6">
