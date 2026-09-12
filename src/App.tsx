@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Technology from "./components/Technology";
 import type { CardType } from "./type/CardType";
 import YourStack from "./components/YourStack";
+import { toast } from "react-toastify";
 
 const technologiseFetch = async (): Promise<CardType[]> => {
   const res = await fetch("/data.json");
@@ -15,10 +16,27 @@ const technologiseFetch = async (): Promise<CardType[]> => {
 function App() {
   const technologisePromise = technologiseFetch();
   const [selectedTechnology, setSelectedTechnology] = useState<CardType[]>([]);
+
+
   const handleAddToStack = (technology: CardType) => {
-    console.log(technology, "technology object passing");
+    // console.log(technology, "technology object passing");
+    const allreadySelected = selectedTechnology.some((item)=> item.id === technology.id);
+    if(allreadySelected){
+      toast("This technology is allready in your stack")
+    }
     setSelectedTechnology([...selectedTechnology, technology]);
   };
+
+  const handleRemoveStack =(id: string)=>{
+    setSelectedTechnology(
+      selectedTechnology.filter((technology)=> technology.id == id)
+    );
+
+  };
+
+  const handleRemoveAll =()=>{
+    setSelectedTechnology([])
+  }
 
   return (
     <>
@@ -33,7 +51,7 @@ function App() {
             />
           </Suspense>
         </div>
-        <YourStack selectedTechnology={selectedTechnology} />
+        <YourStack selectedTechnology={selectedTechnology} handleRemoveStack={handleRemoveStack} handleRemoveAll={handleRemoveAll} />
       </div>
 
       {/* <Footer/> */}

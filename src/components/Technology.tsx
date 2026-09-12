@@ -5,14 +5,15 @@ import TechnolgyCard from "./TechnolgyCard";
 interface TechnologyProps {
     technologisePromise : Promise<CardType[]>
     handleAddToStack : (technology: CardType)=> void
+    selectedTechnology : CardType[]
 }
 
-const Technology = ({technologisePromise , handleAddToStack}:TechnologyProps) => {
+const Technology = ({technologisePromise , handleAddToStack , selectedTechnology}:TechnologyProps) => {
     const technologys = use(technologisePromise)
     console.log(technologys)
     return (
         <div>
-            <TechnolgyCard technologys={technologys} handleAddToStack ={handleAddToStack}/>
+            <TechnolgyCard technologys={technologys} handleAddToStack ={handleAddToStack} selectedTechnology={selectedTechnology}/>
         </div>
     );
 };
