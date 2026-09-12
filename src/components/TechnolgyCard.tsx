@@ -1,9 +1,16 @@
 import type { CardType } from "../type/CardType";
 
-const TechnolgyCard = ({ technologys }) => {
+
+interface TechnolgyCardProps {
+  technologys: CardType[];
+  handleAddToStack:(techology:CardType)=> void
+}
+
+
+const TechnolgyCard = ({ technologys, handleAddToStack  }:TechnolgyCardProps) => {
   console.log(technologys, "technologys from technology card");
   return (
-    <div className="container mx-auto grid grid-cols-3 gap-3">
+    <div className="grid grid-cols-3 gap-3">
       {technologys.map((technology:CardType) => {
         return (
           <div className="card bg-base-100 w-full max-w-[305px] rounded-2xl border border-slate-200 shadow-sm">
@@ -54,7 +61,7 @@ const TechnolgyCard = ({ technologys }) => {
     </div>
 
     {/* Button */}
-    <button className="mt-3 w-full rounded-lg bg-slate-950 py-2.5 text-sm font-medium text-white transition hover:bg-slate-800">
+    <button onClick={()=> handleAddToStack(technology)} className="mt-3 w-full rounded-lg bg-slate-950 py-2.5 text-sm font-medium text-white transition hover:bg-slate-800">
       Add to Stack
     </button>
 
