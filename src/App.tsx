@@ -48,6 +48,7 @@ function App() {
             <Technology
               technologisePromise={technologisePromise}
               handleAddToStack={handleAddToStack}
+              selectedTechnology={selectedTechnology}
             />
           </Suspense>
         </div>
