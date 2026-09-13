@@ -55,7 +55,7 @@ const Footer = () => {
         
       </footer>
       <div className="divider container mx-auto  "></div>
-      <div className="flex justify-between container mx-auto ">
+      <div className="flex justify-between container mx-auto mb-7 ">
         <h1 className="text-[#64748b]">© 2026 Dev Stack. All rights reserved.</h1>
         <ul className="flex gap-5 text-[#64748b] ">
           <li>Privacy</li>
