@@ -16,8 +16,7 @@ favorite technologies to their stack
 - React Icons
 - Vite (build tool)
 - React-Toastify (NPM Package)
-A child can send data back by calling a function that the parent
-passes through props.
+
 ##  Features
 1. Browse different technologies with their details.
 2. Add and remove technologies from the personal stack.
