@@ -2,7 +2,7 @@ import heroImage from "..//assets/banner-stack.png"
 const Banner = () => {
   return (
     <div>
-      <section className="  flex justify-between items-center container mx-auto py-3">
+      <section  className="  mt-12 flex justify-between items-center container mx-auto py-3 ">
         <div>
           <h1 className="text-6xl font-bold">
             Build Your Ideal <br />

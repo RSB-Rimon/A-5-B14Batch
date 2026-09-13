@@ -6,6 +6,8 @@ import Technology from "./components/Technology";
 import type { CardType } from "./type/CardType";
 import YourStack from "./components/YourStack";
 import { toast, ToastContainer } from "react-toastify";
+import Footer from "./components/Footer";
+import Text from "./components/Text";
 
 const technologiseFetch = async (): Promise<CardType[]> => {
   const res = await fetch("/data.json");
@@ -47,6 +49,7 @@ function App() {
     <ToastContainer />
       <Navbar />
       <Banner />
+      <Text />
       <div className="container mx-auto flex gap-6">
         <div className="flex-1">
           <Suspense fallback={<li>Loadding......</li>}>
@@ -60,7 +63,9 @@ function App() {
         <YourStack selectedTechnology={selectedTechnology} handleRemoveStack={handleRemoveStack} handleRemoveAll={handleRemoveAll} />
       </div>
 
-      {/* <Footer/> */}
+     <div className="py-">
+       <Footer />
+     </div>
     </>
   );
 }

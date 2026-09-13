@@ -12,8 +12,13 @@ const Technology = ({technologisePromise , handleAddToStack , selectedTechnology
     const technologys = use(technologisePromise)
     console.log(technologys)
     return (
+        
         <div>
-            <TechnolgyCard technologys={technologys} handleAddToStack ={handleAddToStack} selectedTechnology={selectedTechnology}/>
+          
+            <TechnolgyCard
+             technologys={technologys}
+             handleAddToStack ={handleAddToStack}
+              selectedTechnology={selectedTechnology}/>
         </div>
     );
 };

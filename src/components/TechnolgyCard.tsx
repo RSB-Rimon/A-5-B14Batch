@@ -1,4 +1,6 @@
+
 import type { CardType } from "../type/CardType";
+import { FaStar } from "react-icons/fa";
 
 interface TechnolgyCardProps {
   technologys: CardType[];
@@ -19,10 +21,11 @@ const TechnolgyCard = ({
         );
 
         return (
+         
           <div
             key={technology.id}
-            className={`card w-full max-w-[305px] rounded-2xl border bg-base-100 shadow-sm ${
-              isSelected ? "border-orange-500" : "border-slate-200"
+            className={`relative z-0   card w-full max-w-[305px] rounded-2xl border bg-base-100 shadow-sm ${
+              isSelected ? "border-orange-700" : "border-slate-200"
             }`}
           >
             <div className="card-body p-5">
@@ -63,18 +66,18 @@ const TechnolgyCard = ({
                 </span>
 
                 <span className="flex items-center gap-1 text-sm font-medium text-slate-700">
-                  <span className="text-amber-400">★</span>
+                  <span className="text-amber-400"><FaStar /></span>
                   {technology.rating}
                 </span>
               </div>
 
-              {/* Button */}
+              {/*  Button */}
               <button
                 disabled={isSelected}
                 onClick={() => handleAddToStack(technology)}
                 className={`mt-3 w-full rounded-lg py-2.5 text-sm font-medium text-white ${
                   isSelected
-                    ? "cursor-not-allowed bg-orange-500"
+                    ? "cursor-not-allowed bg-orange-700"
                     : "bg-slate-900 hover:bg-slate-800"
                 }`}
               >
