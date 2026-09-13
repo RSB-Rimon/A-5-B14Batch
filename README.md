@@ -1,7 +1,7 @@
 ## Project Name
 * DevStack
  
-Project Description
+## Project Description :
 DevStack is a technology stack management web application where users
 can explore different technologies, view their details, and add their
 favorite technologies to their stack
